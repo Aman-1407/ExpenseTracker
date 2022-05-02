@@ -5,15 +5,15 @@
     android:title="Home"
     android:icon="@drawable/ic_home"/>
 <item
-    android:id="@+id/miSearch"
-    android:title="Search"
-    android:icon="@drawable/ic_search"/>
+    android:id="@+id/miIncome"
+    android:title="Income"
+    android:icon="@drawable/ic_add"/>
+<item
+    android:id="@+id/miExpense"
+    android:title="Expense"
+    android:icon="@drawable/ic_remove"/>
 <item
     android:id="@+id/miProfile"
     android:title="Profile"
     android:icon="@drawable/ic_person"/>
-<item
-    android:id="@+id/mSettings"
-    android:title="Settings"
-    android:icon="@drawable/ic_setting"/>
 </menu>
