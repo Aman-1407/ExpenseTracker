@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="5dp"
+    app:cardElevation="5dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingRight="15dp">
+
+            <ImageView
+                android:id="@+id/i1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/spotify" />
+
+            <TextView
+                android:id="@+id/type_txt_expense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_toRightOf="@+id/i1"
+                android:fontFamily="sans-serif-black"
+                android:letterSpacing="0.03"
+                android:text="Netflix"
+                android:textColor="#516b9e"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/note_txt_expense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/type_txt_expense"
+                android:layout_marginLeft="21dp"
+                android:layout_toRightOf="@+id/i1"
+                android:text="15 Dec"
+                android:visibility="gone"
+                android:textColor="#516b9e"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/date_txt_expense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/type_txt_expense"
+                android:layout_marginLeft="21dp"
+                android:layout_toRightOf="@+id/i1"
+                android:text="15 Dec"
+                android:textColor="#516b9e"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/amount_txt_expense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:text="-$14,99"
+                android:textColor="#516b9e"
+                android:textSize="23dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
