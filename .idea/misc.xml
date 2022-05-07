@@ -3,24 +3,37 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/button.xml" value="0.217" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.217" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.217" />
+        <entry key="app/src/main/res/drawable-v24/ic_transport.xml" value="0.217" />
+        <entry key="app/src/main/res/drawable-v24/login_button_bk.xml" value="0.217" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.217" />
+        <entry key="app/src/main/res/drawable/ic_person.xml" value="0.217" />
         <entry key="app/src/main/res/layout/activity_add_expense.xml" value="0.25277777777777777" />
         <entry key="app/src/main/res/layout/activity_add_income.xml" value="0.25277777777777777" />
         <entry key="app/src/main/res/layout/activity_add_transaction.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/activity_add_transaction2.xml" value="0.28020833333333334" />
+        <entry key="app/src/main/res/layout/activity_dash.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/activity_expense.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/activity_expense_activity.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/activity_expense_activity.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_feature.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_income_acitivity.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_income_activity.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.29025641025641025" />
+        <entry key="app/src/main/res/layout/activity_month.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/activity_nav.xml" value="1.0" />
+        <entry key="app/src/main/res/layout/activity_pie.xml" value="0.28072916666666664" />
+        <entry key="app/src/main/res/layout/activity_pie_chart.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_register_user.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/activity_update_expense.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_update_income.xml" value="0.28020833333333334" />
+        <entry key="app/src/main/res/layout/activity_week.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/expense_recycler_data.xml" value="0.2947916666666667" />
@@ -38,15 +51,23 @@
         <entry key="app/src/main/res/layout/fragment_third.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/income_recycler_data.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/income_recycler_data2.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/input_layout.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/layout_expense_item.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/layout_expense_item2.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/layout_income_item.xml" value="0.25625" />
         <entry key="app/src/main/res/layout/layout_income_item2.xml" value="0.28020833333333334" />
+        <entry key="app/src/main/res/layout/layout_login.xml" value="0.26614583333333336" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.29025641025641025" />
+        <entry key="app/src/main/res/layout/pie.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/retrieve_layout.xml" value="0.14010416666666667" />
+        <entry key="app/src/main/res/layout/update_layout.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.20185185185185187" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="app/src/main/res/menu/main_activity2.xml" value="0.20185185185185187" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.28020833333333334" />
+        <entry key="app/src/main/res/menu/navmenu.xml" value="0.28020833333333334" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1405" />
       </map>
     </option>
   </component>
@@ -55,5 +76,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.28020833333333334" />
+      </ProjectState>
+    </option>
   </component>
 </project>

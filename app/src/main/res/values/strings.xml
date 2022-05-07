@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">exp2</string>
     <string name="title_activity_main2">MainActivity2</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -13,4 +13,27 @@
     <string name="menu_slideshow">Slideshow</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Rs">\u20B9</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="todo">TODO</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="register">Register</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="reset">Reset</string>
+    <string name="register_user">Register User</string>
+    <string name="age">age</string>
+    <string name="full_name">Full Name</string>
+
+    <string-array name="items">
+        <item>Select Item</item>
+        <item>Travel</item>
+        <item>Food</item>
+        <item>Entertainment</item>
+        <item>Other</item>
+    </string-array>
+
 </resources>
