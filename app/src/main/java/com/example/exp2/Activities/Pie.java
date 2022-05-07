@@ -52,9 +52,15 @@ public class Pie extends AppCompatActivity {
         travel=findViewById(R.id.travelid);
 
         travelDate();
+        foodData();
+        entertainmentData();
+        otherData();
 
         
     }
+
+
+    private
 
     private void travelDate() {
 
