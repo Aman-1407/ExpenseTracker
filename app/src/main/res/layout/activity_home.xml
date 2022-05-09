@@ -34,12 +34,11 @@
             android:textSize="28dp" />
 
         <ImageView
-            android:id="@+id/profile"
-            android:clickable="true"
-            android:focusable="true"
+            android:id="@+id/p_img"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/todo"
             android:src="@drawable/profile" />
 
     </RelativeLayout>
@@ -55,7 +54,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Total Balance"
+            android:text="Total Savings"
             android:textSize="22dp"
             android:textColor="#fff"
             android:paddingLeft="40dp"
@@ -65,7 +64,7 @@
             android:id="@+id/balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="₹3,729.00"
+            android:text=""
             android:textSize="35dp"
             android:textColor="#fff"
             android:textStyle="bold"
@@ -106,7 +105,7 @@
                     android:id="@+id/inc_dash"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Income"
+                    android:text="Budget"
                     android:textSize="22dp"
                     android:textStyle="bold"
                     android:textColor="#fff"
@@ -309,10 +308,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="34dp"
         android:layout_toStartOf="@id/add_expense_fab"
-        android:text="Add Income"
+        android:text="Set Budget"
+        android:textColor="#fff"
         android:textSize="16dp"
-        android:textStyle="bold"
-        android:textColor="#fff" />
+        android:textStyle="bold" />
 
 
 </RelativeLayout>

@@ -50,7 +50,7 @@ import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
     ActivityHomeBinding binding;
-    DatabaseReference database,database2,balanceRef;
+    DatabaseReference database,database2,personal;
     MyAdapter myAdapter;
     MyAdapter2 myAdapter2;
     ArrayList<Data> list;
@@ -91,6 +91,7 @@ public class HomeActivity extends AppCompatActivity {
         String uid = mUser.getUid();
         database = FirebaseDatabase.getInstance().getReference("IncomeData").child(uid);
         database2 = FirebaseDatabase.getInstance().getReference("ExpenseData").child(uid);
+        personal = FirebaseDatabase.getInstance().getReference("PieData").child(uid);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
         final TextView greetingTextView = (TextView) findViewById(R.id.welcome);
@@ -103,6 +104,7 @@ public class HomeActivity extends AppCompatActivity {
         list = new ArrayList<>();
         myAdapter = new MyAdapter(this, list);
         myAdapter2 = new MyAdapter2(this, list);
+        profile=findViewById(R.id.p_img);
 
         reference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
@@ -168,6 +170,7 @@ public class HomeActivity extends AppCompatActivity {
                     totalAmount += pTotal;
                     amountTextview1.setText("\u20B9" + totalAmount);
                 }
+                personal.child("Income").setValue(totalAmount);
             }
 
             @Override
@@ -198,6 +201,7 @@ public class HomeActivity extends AppCompatActivity {
                     totalAmount += pTotal;
                     amountTextview2.setText("\u20B9" + totalAmount);
                 }
+                personal.child("Expense").setValue(totalAmount);
             }
 
 
@@ -207,39 +211,47 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+
+        personal.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                int income;
+                if(snapshot.hasChild("Income")) {
+                    income = Integer.parseInt(snapshot.child("Income").getValue().toString());
+                }else{
+                    income=0;
+                }
+                int expense;
+                if(snapshot.hasChild("Expense")) {
+                    expense = Integer.parseInt(snapshot.child("Expense").getValue().toString());
+                }else{
+                    expense=0;
+                }
+                int saving = income - expense;
+                balance.setText("\u20B9" + saving);
+                if(income<expense){
+                    Toast.makeText(HomeActivity.this,"Limit Exceeded",Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         inc_dash.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, IncomeActivity.class)));
-
         exe_dash.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, ExpenseActivity.class)));
-
         record.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, Feature.class)));
-
-//
-//        balanceRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                int income = Integer.parseInt(snapshot.child("IncomeData").getValue().toString());
-//                int expense = Integer.parseInt(snapshot.child("ExpenseData").getValue().toString());
-//                int saving = income - expense;
-//                balance.setText(" " + saving);
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
-
+        profile.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, ProfileActivity.class)));
 
     }
 
-
-
-private void showIncomeDialog() {
+    private void showIncomeDialog() {
     AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
     final View customLayout = getLayoutInflater().inflate(R.layout.activity_add_income, null);
     EditText et_income = customLayout.findViewById(R.id.etIncomeAmount);
-    EditText et_note = customLayout.findViewById(R.id.etIncomeNote);
 
     Button btn_save = customLayout.findViewById(R.id.btnSaveIncome);
     Button btn_cancel = customLayout.findViewById(R.id.btn_cancel_income);
@@ -259,19 +271,15 @@ private void showIncomeDialog() {
 
     btn_save.setOnClickListener(v -> {
         String amount = et_income.getText().toString();
-        String note = et_note.getText().toString();
         String type = itemSpinner.getSelectedItem().toString();
         if (amount.isEmpty()) {
             et_income.setError("Empty amount");
-        } else if (note.isEmpty()) {
-            et_note.setError("Empty note");
         }else if (type.equalsIgnoreCase("select item")){
             Toast.makeText(HomeActivity.this, "Please select a valid item", Toast.LENGTH_SHORT).show();
         } else {
             int in_amount=Integer.parseInt(amount);
             String id=database.push().getKey();
-
-
+            String note="Budget";
             DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             Calendar cal = Calendar.getInstance();
             String date = dateFormat.format(cal.getTime());
@@ -284,8 +292,6 @@ private void showIncomeDialog() {
             String typeday=type+date;
             String typeweek=type+weeks.getWeeks();
             String typemonth=type+months.getMonths();
-
-
             String mDate= DateFormat.getDateInstance().format(new Date());
             Data data=new Data(in_amount,type,typeday,typemonth,typeweek,note,id,date,weeks.getWeeks(),months.getMonths());
             assert id != null;
@@ -298,8 +304,6 @@ private void showIncomeDialog() {
     });
 
 }
-
-
     private void showExpenseDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 

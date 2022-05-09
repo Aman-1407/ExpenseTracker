@@ -32,7 +32,7 @@ public class ForgotPassword extends AppCompatActivity{
         progressBar=(ProgressBar) findViewById(R.id.progressBar2);
         auth=FirebaseAuth.getInstance();
         TextView banner = (TextView) findViewById(R.id.banner_forgot);
-        banner.setOnClickListener(view -> startActivity(new Intent(ForgotPassword.this, MainActivity.class)));
+        banner.setOnClickListener(view -> startActivity(new Intent(ForgotPassword.this, LoginActivity.class)));
 
 
         resetPass.setOnClickListener(view -> resetPassword());

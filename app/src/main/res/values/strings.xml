@@ -16,7 +16,6 @@
 
     <string name="Rs">\u20B9</string>
     <string name="forget_password">Forget Password?</string>
-    <string name="todo">TODO</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -27,6 +26,8 @@
     <string name="register_user">Register User</string>
     <string name="age">age</string>
     <string name="full_name">Full Name</string>
+    <string name="weekly_expense">Weekly Expense:</string>
+    <string name="todo">TODO</string>
 
     <string-array name="items">
         <item>Select Item</item>

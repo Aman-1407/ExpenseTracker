@@ -53,7 +53,7 @@ public class RegisterUser extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.banner:
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
             case R.id.register_user:
                 register_user();

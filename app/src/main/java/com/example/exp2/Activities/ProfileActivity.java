@@ -31,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
         Button logout = (Button) findViewById(R.id.signout);
         logout.setOnClickListener(view -> {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(ProfileActivity.this, MainActivity.class));
+            startActivity(new Intent(ProfileActivity.this, LoginActivity.class));
         });
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -54,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
                     String fullname= UserProfile.fullname;
                     String email= UserProfile.email;
                     String age=UserProfile.age;
-                    greetingTextView.setText("Welcome, " + fullname + " !");
+                    greetingTextView.setText("Logged In As, " + fullname + " !");
                     fullnameTextView.setText(fullname);
                     emailTextView.setText(email);
                     ageTextView.setText(age);

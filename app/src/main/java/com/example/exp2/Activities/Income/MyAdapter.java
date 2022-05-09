@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +61,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.setType(data.getType());
         holder.setNote(data.getNote());
         holder.setDate(data.getDate());
+
+        switch (data.getType()){
+            case "Travel":
+                holder.imageView.setImageResource(R.drawable.amazon);
+                break;
+            case "Food":
+                holder.imageView.setImageResource(R.drawable.spotify);
+                break;
+            case "Entertainment":
+                holder.imageView.setImageResource(R.drawable.netflix);
+                break;
+            case "Other":
+                holder.imageView.setImageResource(R.drawable.dribble);
+                break;
+        }
 
 
 
@@ -158,10 +174,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
+        public ImageView imageView;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
+            imageView=itemView.findViewById(R.id.imageview2);
         }
 
         void setType(String type) {

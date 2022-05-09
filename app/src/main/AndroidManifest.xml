@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.exp2" >
+    package="com.example.exp2">
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,21 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Exp2" >
+        android:theme="@style/Theme.Exp2">
         <activity
-            android:name=".Activities.Pie"
+            android:name=".Activities.Limit"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.Daily"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.pieMonth"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.pieDaily"
+            android:exported="false" />
+        <activity
+            android:name=".Activities.pieWeek"
             android:exported="false" />
         <activity
             android:name=".Activities.month"
@@ -41,8 +53,8 @@
             android:name=".Activities.RegisterUser"
             android:exported="false" />
         <activity
-            android:name=".Activities.MainActivity"
-            android:exported="true" >
+            android:name=".Activities.LoginActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

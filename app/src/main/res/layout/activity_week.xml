@@ -20,9 +20,9 @@
             android:id="@+id/t1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Weekly Expense:"
+            android:text="@string/weekly_expense"
             android:textColor="#fff"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/expense_week"
@@ -35,6 +35,14 @@
             android:textColor="#fff"
             android:textSize="28sp" />
 
+        <ImageView
+            android:id="@+id/p_week"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_pie" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_week"
@@ -43,7 +51,6 @@
             android:layout_marginTop="80dp">
 
         </androidx.recyclerview.widget.RecyclerView>
-
 
     </RelativeLayout>
 </LinearLayout>

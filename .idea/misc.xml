@@ -15,6 +15,7 @@
         <entry key="app/src/main/res/layout/activity_add_income.xml" value="0.25277777777777777" />
         <entry key="app/src/main/res/layout/activity_add_transaction.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/activity_add_transaction2.xml" value="0.28020833333333334" />
+        <entry key="app/src/main/res/layout/activity_daily.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_dash.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/activity_expense.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_expense_activity.xml" value="0.25" />
@@ -23,12 +24,15 @@
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_income_acitivity.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_income_activity.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/activity_limit.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/activity_month.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/activity_nav.xml" value="1.0" />
         <entry key="app/src/main/res/layout/activity_pie.xml" value="0.28072916666666664" />
         <entry key="app/src/main/res/layout/activity_pie_chart.xml" value="0.28020833333333334" />
+        <entry key="app/src/main/res/layout/activity_pie_daily.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/activity_pie_month.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_register_user.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/activity_update_expense.xml" value="0.2947916666666667" />
@@ -80,7 +84,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.28020833333333334" />
+        <option name="scale" value="0.2947916666666667" />
       </ProjectState>
     </option>
   </component>

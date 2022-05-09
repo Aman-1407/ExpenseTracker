@@ -116,6 +116,7 @@
                     android:src="@drawable/transfer" />
 
                 <TextView
+                    android:id="@+id/today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -233,10 +234,10 @@
                     android:src="@drawable/coin"/>
 
                 <TextView
-                    android:id="@+id/inc_dash"
+                    android:id="@+id/limit_dash"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Year"
+                    android:text="Set Limit"
                     android:textSize="22dp"
                     android:textStyle="bold"
                     android:textColor="#fff"

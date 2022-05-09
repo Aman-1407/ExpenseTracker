@@ -22,7 +22,7 @@
             android:paddingRight="15dp">
 
             <ImageView
-                android:id="@+id/i1"
+                android:id="@+id/imageview"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/spotify" />
@@ -32,12 +32,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_toRightOf="@+id/i1"
+                android:layout_toRightOf="@+id/imageview"
                 android:fontFamily="sans-serif-black"
                 android:letterSpacing="0.03"
                 android:text="Netflix"
                 android:textColor="#516b9e"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -46,11 +46,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/type_txt_expense"
                 android:layout_marginLeft="21dp"
-                android:layout_toRightOf="@+id/i1"
+                android:layout_toRightOf="@+id/imageview"
                 android:text="15 Dec"
-                android:visibility="gone"
                 android:textColor="#516b9e"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/date_txt_expense"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/type_txt_expense"
                 android:layout_marginLeft="21dp"
-                android:layout_toRightOf="@+id/i1"
+                android:layout_toRightOf="@+id/imageview"
                 android:text="15 Dec"
                 android:textColor="#516b9e"
                 android:textSize="16dp" />
@@ -70,9 +70,9 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="5dp"
-                android:text="-$14,99"
+                android:text="100"
                 android:textColor="#516b9e"
-                android:textSize="23dp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
         </RelativeLayout>

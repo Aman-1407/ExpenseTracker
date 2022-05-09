@@ -1,7 +1,9 @@
 package com.example.exp2.Activities;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +37,7 @@ public class month extends AppCompatActivity {
     com.example.exp2.Activities.weekAdapter weekAdapter;
     ArrayList<Data> list;
     private TextView amountTextview1;
+    ImageView p_month;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,7 @@ public class month extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
+        p_month=findViewById(R.id.p_month);
 
         amountTextview1 = findViewById(R.id.expense_month);
 
@@ -60,6 +64,7 @@ public class month extends AppCompatActivity {
         weekAdapter = new weekAdapter(this,list);
         recyclerView.setAdapter(weekAdapter);
         readMonth();
+        p_month.setOnClickListener(view -> startActivity(new Intent(month.this, pieMonth.class)));
 
     }
 

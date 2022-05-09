@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +49,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.expense_recycler_data,parent,false);
+
         return  new MyViewHolder(v);
     }
 
@@ -60,7 +62,20 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
         holder.setNote(data.getNote());
         holder.setDate(data.getDate());
 
-
+        switch (data.getType()){
+            case "Travel":
+                holder.imageView.setImageResource(R.drawable.amazon);
+                break;
+            case "Food":
+                holder.imageView.setImageResource(R.drawable.spotify);
+                break;
+            case "Entertainment":
+                holder.imageView.setImageResource(R.drawable.netflix);
+                break;
+            case "Other":
+                holder.imageView.setImageResource(R.drawable.dribble);
+                break;
+        }
 
         holder.itemView.setOnClickListener(view -> {
             id=data.getId();
@@ -157,10 +172,14 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         View mView;
+        public ImageView imageView;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
+            imageView=itemView.findViewById(R.id.imageview);
+
         }
 
         void setType(String type) {
