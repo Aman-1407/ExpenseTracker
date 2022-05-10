@@ -43,10 +43,10 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/p_img"
-        android:layout_width="50sp"
-        android:layout_height="50sp"
-        android:layout_marginTop="20sp"
-        android:layout_marginEnd="16sp"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="30sp"
+        android:layout_marginEnd="20sp"
         android:src="@drawable/profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/greet"
@@ -187,7 +187,7 @@
 
             <GridLayout
                 android:layout_width="350dp"
-                android:layout_height="153dp"
+                android:layout_height="130dp"
                 android:layout_margin="10dp"
                 android:columnCount="2"
                 android:rowCount="3"
@@ -293,7 +293,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Analysis"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:textColor="@color/primary_text"
                 app:layout_constraintStart_toStartOf="parent"
@@ -313,8 +313,8 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_today"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
                     android:src="@drawable/today" />
 
                 <TextView
@@ -346,8 +346,8 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_week"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
                     android:src="@drawable/week" />
 
                 <TextView
@@ -380,8 +380,8 @@
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/img_month"
-                    android:layout_width="50sp"
-                    android:layout_height="50sp"
+                    android:layout_width="40sp"
+                    android:layout_height="40sp"
                     android:src="@drawable/month" />
 
                 <TextView
@@ -405,6 +405,107 @@
 
     </androidx.cardview.widget.CardView>
 
+    <ScrollView
+        android:id="@+id/scrollbottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:overScrollMode="never"
+        android:padding="16sp"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/cardBottom">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardHeader">
+
+            <GridLayout
+                android:layout_width="350dp"
+                android:layout_height="130dp"
+                android:layout_margin="10dp"
+                android:columnCount="2"
+                android:rowCount="3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardHeader">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    app:cardBackgroundColor="@color/card_background"
+                    android:layout_rowWeight="1"
+                    android:layout_column="0"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_set_limit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/bud7" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4sp"
+                            android:text="Set Limit"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    app:cardBackgroundColor="@color/card_background"
+                    android:layout_rowWeight="1"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="fill"
+                    app:cardCornerRadius="8dp"
+                    app:cardElevation="0dp"
+                    app:cardUseCompatPadding="true">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|center_horizontal"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_limit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/bud8" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4sp"
+                            android:text="Limit Record"
+                            android:textColor="@color/secondary_text"
+                            android:textSize="16sp" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </GridLayout>
+        </LinearLayout>
+    </ScrollView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab"
         android:layout_width="wrap_content"
@@ -417,7 +518,6 @@
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_income_fab"
         android:layout_width="wrap_content"
@@ -437,8 +537,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/add_income_fab"
         app:layout_constraintEnd_toStartOf="@+id/add_income_fab"
         app:layout_constraintTop_toTopOf="@+id/add_income_fab" />
-
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_expense_fab"
         android:layout_width="wrap_content"
@@ -450,7 +548,6 @@
         app:layout_constraintBottom_toTopOf="@+id/add_income_fab"
         app:layout_constraintEnd_toEndOf="@+id/add_income_fab"
         app:layout_constraintStart_toStartOf="@+id/add_income_fab" />
-
     <TextView
         android:id="@+id/add_expense_text"
         android:layout_width="wrap_content"
@@ -461,7 +558,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/add_expense_fab"
         app:layout_constraintEnd_toStartOf="@+id/add_expense_fab"
         app:layout_constraintTop_toTopOf="@+id/add_expense_fab" />
-
 
 
 

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@color/white">
+    android:background="@color/background">
 
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/login"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:textSize="35sp"
         android:textStyle="bold"
         android:letterSpacing="0.03"
@@ -27,7 +27,7 @@
         android:background="@drawable/forget"
         android:paddingStart="20dp"
         android:hint="@string/email"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:textSize="18sp"
         android:textStyle="bold"
         android:autofillHints=""
@@ -42,7 +42,7 @@
         android:paddingStart="20dp"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:ignore="RtlSymmetry" />
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/forget_password"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_gravity="end"
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/don_t_have_an_account_sign_up"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginTop="15dp"/>

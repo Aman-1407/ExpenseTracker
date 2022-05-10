@@ -64,16 +64,16 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyAdapter2.MyViewHolder> {
 
         switch (data.getType()){
             case "Travel":
-                holder.imageView.setImageResource(R.drawable.amazon);
+                holder.imageView.setImageResource(R.drawable.flight);
                 break;
             case "Food":
-                holder.imageView.setImageResource(R.drawable.spotify);
+                holder.imageView.setImageResource(R.drawable.burger);
                 break;
             case "Entertainment":
                 holder.imageView.setImageResource(R.drawable.netflix);
                 break;
             case "Other":
-                holder.imageView.setImageResource(R.drawable.dribble);
+                holder.imageView.setImageResource(R.drawable.other);
                 break;
         }
 

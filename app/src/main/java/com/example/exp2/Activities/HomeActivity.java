@@ -51,13 +51,13 @@ import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
     ActivityHomeBinding binding;
-    DatabaseReference database,database2,personal;
+    DatabaseReference database,database2,personal,limit;
     MyAdapter myAdapter;
     MyAdapter2 myAdapter2;
     weekAdapter weekAdapter;
     ArrayList<Data> list;
     TextView amountTextview1,amountTextview2,txt_today,txt_week,txt_month,balance;
-    ImageView profile,inc,exe,today,week,month;
+    ImageView profile,inc,exe,today,week,month,img_limit,img_set_limit;
 
     FloatingActionButton mAddFab, mAddIncomeFab, mAddExpenseFab;
     TextView addIncomeText, addExpenseText;
@@ -94,6 +94,7 @@ public class HomeActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance().getReference("IncomeData").child(uid);
         database2 = FirebaseDatabase.getInstance().getReference("ExpenseData").child(uid);
         personal = FirebaseDatabase.getInstance().getReference("PieData").child(uid);
+        limit = FirebaseDatabase.getInstance().getReference("LimitData").child(uid);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
@@ -117,6 +118,8 @@ public class HomeActivity extends AppCompatActivity {
         txt_today=findViewById(R.id.txt_today);
         txt_week=findViewById(R.id.txt_week);
         txt_month=findViewById(R.id.txt_month);
+        img_set_limit=findViewById(R.id.img_set_limit);
+        img_limit=findViewById(R.id.img_limit);
         list = new ArrayList<>();
         myAdapter = new MyAdapter(this, list);
         myAdapter2 = new MyAdapter2(this, list);
@@ -168,6 +171,8 @@ public class HomeActivity extends AppCompatActivity {
         mAddIncomeFab.setOnClickListener(view13 -> showIncomeDialog());
 
         mAddExpenseFab.setOnClickListener(view12 -> showExpenseDialog());
+
+        img_set_limit.setOnClickListener(view -> showLimitDialog());
 
 
         database.addValueEventListener(new ValueEventListener() {
@@ -356,6 +361,7 @@ public class HomeActivity extends AppCompatActivity {
         week.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, week.class)));
         month.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, month.class)));
         profile.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, ProfileActivity.class)));
+        img_limit.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, Limit.class)));
 
     }
 
@@ -513,6 +519,63 @@ public class HomeActivity extends AppCompatActivity {
 //            }
 //            return true;
 //        });
+    }
+    private void showLimitDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        final View customLayout = getLayoutInflater().inflate(R.layout.activity_add_income, null);
+        EditText et_income = customLayout.findViewById(R.id.etIncomeAmount);
+
+        Button btn_save = customLayout.findViewById(R.id.btnSaveIncome);
+        Button btn_cancel = customLayout.findViewById(R.id.btn_cancel_income);
+
+        final Spinner itemSpinner = customLayout.findViewById(R.id.spinner_income);
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.items));
+        itemsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        itemSpinner.setAdapter(itemsAdapter);
+
+        builder.setView(customLayout);
+        AlertDialog alertDialog = builder.create();
+
+        alertDialog.show();
+
+        btn_cancel.setOnClickListener(v -> alertDialog.dismiss());
+
+        btn_save.setOnClickListener(v -> {
+            String amount = et_income.getText().toString();
+            String type = itemSpinner.getSelectedItem().toString();
+            if (amount.isEmpty()) {
+                et_income.setError("Empty amount");
+            }else if (type.equalsIgnoreCase("select item")){
+                Toast.makeText(HomeActivity.this, "Please select a valid item", Toast.LENGTH_SHORT).show();
+            } else {
+                int in_amount=Integer.parseInt(amount);
+                String id=limit.push().getKey();
+                String note="Budget";
+                DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                Calendar cal = Calendar.getInstance();
+                String date = dateFormat.format(cal.getTime());
+                MutableDateTime epoch =new MutableDateTime();
+                epoch.setDate(0);
+                DateTime now =new DateTime();
+                Months months= Months.monthsBetween(epoch,now);
+                Weeks weeks=Weeks.weeksBetween(epoch,now);
+
+                String typeday=type+date;
+                String typeweek=type+weeks.getWeeks();
+                String typemonth=type+months.getMonths();
+                String mDate= DateFormat.getDateInstance().format(new Date());
+                Data data=new Data(in_amount,type,typeday,typemonth,typeweek,note,id,date,weeks.getWeeks(),months.getMonths());
+                assert id != null;
+                limit.child(id).setValue(data);
+                Toast.makeText(HomeActivity.this,"Data Added!",Toast.LENGTH_SHORT).show();
+                alertDialog.dismiss();
+
+            }
+
+        });
+
     }
 
     private void replaceFragment(Fragment fragment){
