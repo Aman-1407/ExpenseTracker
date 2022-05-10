@@ -11,7 +11,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16sp">
 
         <RelativeLayout
             android:id="@+id/r1"
@@ -25,7 +26,7 @@
                 android:id="@+id/imageview2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/netflix" />
+                android:src="@drawable/spotify" />
 
             <TextView
                 android:id="@+id/type_txt_income"
@@ -37,7 +38,7 @@
                 android:letterSpacing="0.03"
                 android:text="Netflix"
                 android:textColor="#516b9e"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -48,9 +49,9 @@
                 android:layout_marginLeft="21dp"
                 android:layout_toRightOf="@+id/imageview2"
                 android:text="15 Dec"
-                android:visibility="gone"
                 android:textColor="#516b9e"
-                android:textSize="16dp" />
+                android:textSize="16dp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/date_txt_income"
@@ -72,7 +73,7 @@
                 android:layout_marginLeft="5dp"
                 android:text="100"
                 android:textColor="#516b9e"
-                android:textSize="23dp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
         </RelativeLayout>

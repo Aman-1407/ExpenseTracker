@@ -40,14 +40,14 @@
                 android:layout_height="wrap_content"
                 android:hint="Enter amount"
                 android:inputType="number"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/primary_text"/>
 
             <EditText
                 android:id="@+id/et_expenseNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter note"
-                android:textColorHint="@color/white"/>
+                android:textColorHint="@color/primary_text"/>
 
         </LinearLayout>
 

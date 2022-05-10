@@ -21,7 +21,7 @@
         <entry key="app/src/main/res/layout/activity_expense_activity.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_feature.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.2947916666666667" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.5189453125000001" />
         <entry key="app/src/main/res/layout/activity_income_acitivity.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_income_activity.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_limit.xml" value="0.2947916666666667" />
@@ -53,6 +53,7 @@
         <entry key="app/src/main/res/layout/fragment_setting.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_test_activity.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/fragment_third.xml" value="0.29025641025641025" />
+        <entry key="app/src/main/res/layout/grid.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/income_recycler_data.xml" value="0.28020833333333334" />
         <entry key="app/src/main/res/layout/income_recycler_data2.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/input_layout.xml" value="0.28020833333333334" />
@@ -84,7 +85,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.2947916666666667" />
+        <option name="scale" value="0.5189453125000001" />
       </ProjectState>
     </option>
   </component>

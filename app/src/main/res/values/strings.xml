@@ -28,6 +28,7 @@
     <string name="full_name">Full Name</string>
     <string name="weekly_expense">Weekly Expense:</string>
     <string name="todo">TODO</string>
+    <string name="more">More</string>
 
     <string-array name="items">
         <item>Select Item</item>

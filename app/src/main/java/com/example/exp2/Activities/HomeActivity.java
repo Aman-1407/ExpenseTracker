@@ -34,6 +34,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.joda.time.DateTime;
@@ -53,9 +54,10 @@ public class HomeActivity extends AppCompatActivity {
     DatabaseReference database,database2,personal;
     MyAdapter myAdapter;
     MyAdapter2 myAdapter2;
+    weekAdapter weekAdapter;
     ArrayList<Data> list;
-    TextView amountTextview1,amountTextview2,inc_dash,exe_dash,balance,record;
-    ImageView profile;
+    TextView amountTextview1,amountTextview2,txt_today,txt_week,txt_month,balance;
+    ImageView profile,inc,exe,today,week,month;
 
     FloatingActionButton mAddFab, mAddIncomeFab, mAddExpenseFab;
     TextView addIncomeText, addExpenseText;
@@ -94,17 +96,36 @@ public class HomeActivity extends AppCompatActivity {
         personal = FirebaseDatabase.getInstance().getReference("PieData").child(uid);
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
 
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Calendar cal = Calendar.getInstance();
+        String date = dateFormat.format(cal.getTime());
+        MutableDateTime epoch = new MutableDateTime();
+        epoch.setDate(0);
+        DateTime now = new DateTime();
+        Weeks weeks=Weeks.weeksBetween(epoch,now);
+        Months months= Months.monthsBetween(epoch,now);
+
         final TextView greetingTextView = (TextView) findViewById(R.id.welcome);
         amountTextview1 = findViewById(R.id.income_home);
         amountTextview2 = findViewById(R.id.expense_home);
-        inc_dash = findViewById(R.id.inc_dash);
-        exe_dash = findViewById(R.id.exe_dash);
+        inc = findViewById(R.id.img_inc);
+        exe = findViewById(R.id.img_exe);
+        today = findViewById(R.id.img_today);
+        week = findViewById(R.id.img_week);
+        month = findViewById(R.id.img_month);
         balance = findViewById(R.id.balance);
-        record = findViewById(R.id.record_dash);
+        txt_today=findViewById(R.id.txt_today);
+        txt_week=findViewById(R.id.txt_week);
+        txt_month=findViewById(R.id.txt_month);
         list = new ArrayList<>();
         myAdapter = new MyAdapter(this, list);
         myAdapter2 = new MyAdapter2(this, list);
+        weekAdapter=new weekAdapter(this,list);
         profile=findViewById(R.id.p_img);
+
+        Query query = database2.orderByChild("date").equalTo(date);
+        Query query2 = database2.orderByChild("week").equalTo(weeks.getWeeks());
+        Query query3 = database2.orderByChild("month").equalTo(months.getMonths());
 
         reference.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
@@ -113,7 +134,7 @@ public class HomeActivity extends AppCompatActivity {
                 User UserProfile = snapshot.getValue(User.class);
                 if (UserProfile != null) {
                     String fullname = UserProfile.fullname;
-                    greetingTextView.setText("" + fullname);
+                    greetingTextView.setText(""+ fullname);
                 }
 
             }
@@ -229,9 +250,6 @@ public class HomeActivity extends AppCompatActivity {
                 }
                 int saving = income - expense;
                 balance.setText("\u20B9" + saving);
-                if(income<expense){
-                    Toast.makeText(HomeActivity.this,"Limit Exceeded",Toast.LENGTH_SHORT).show();
-                }
             }
 
             @Override
@@ -240,9 +258,103 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        inc_dash.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, IncomeActivity.class)));
-        exe_dash.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, ExpenseActivity.class)));
-        record.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, Feature.class)));
+        query.addValueEventListener(new ValueEventListener() {
+            @SuppressLint({"NotifyDataSetChanged", "SetTextI18n"})
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Data data = dataSnapshot.getValue(Data.class);
+                    list.add(data);
+                }
+
+                weekAdapter.notifyDataSetChanged();
+
+                int totalAmount = 0;
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) ds.getValue();
+                    Object total = map.get("amount");
+                    int pTotal = Integer.parseInt(String.valueOf(total));
+                    totalAmount += pTotal;
+
+                    txt_today.setText("" + totalAmount);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        query2.addValueEventListener(new ValueEventListener() {
+            @SuppressLint({"NotifyDataSetChanged", "SetTextI18n"})
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Data data = dataSnapshot.getValue(Data.class);
+                    list.add(data);
+                }
+
+                weekAdapter.notifyDataSetChanged();
+
+                int totalAmount = 0;
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) ds.getValue();
+                    Object total = map.get("amount");
+                    int pTotal = Integer.parseInt(String.valueOf(total));
+                    totalAmount += pTotal;
+
+                    txt_week.setText("" + totalAmount);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        query3.addValueEventListener(new ValueEventListener() {
+            @SuppressLint({"NotifyDataSetChanged", "SetTextI18n"})
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Data data = dataSnapshot.getValue(Data.class);
+                    list.add(data);
+                }
+
+                weekAdapter.notifyDataSetChanged();
+
+                int totalAmount = 0;
+                for (DataSnapshot ds : snapshot.getChildren()) {
+                    Map<String, Object> map = (Map<String, Object>) ds.getValue();
+                    Object total = map.get("amount");
+                    int pTotal = Integer.parseInt(String.valueOf(total));
+                    totalAmount += pTotal;
+
+                    txt_month.setText("" + totalAmount);
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        inc.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, IncomeActivity.class)));
+        exe.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, ExpenseActivity.class)));
+        today.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, Daily.class)));
+        week.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, week.class)));
+        month.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, month.class)));
         profile.setOnClickListener(view -> startActivity(new Intent(HomeActivity.this, ProfileActivity.class)));
 
     }
@@ -297,6 +409,12 @@ public class HomeActivity extends AppCompatActivity {
             assert id != null;
             database.child(id).setValue(data);
             Toast.makeText(HomeActivity.this,"Data Added!",Toast.LENGTH_SHORT).show();
+            mAddIncomeFab.hide();
+            mAddExpenseFab.hide();
+            addExpenseText.setVisibility(View.GONE);
+            addIncomeText.setVisibility(View.GONE);
+
+            isAllFabVisible = false;
             alertDialog.dismiss();
 
         }
@@ -363,6 +481,12 @@ public class HomeActivity extends AppCompatActivity {
                 assert id != null;
                 database2.child(id).setValue(data);
                 Toast.makeText(HomeActivity.this,"Data Added!",Toast.LENGTH_SHORT).show();
+                mAddIncomeFab.hide();
+                mAddExpenseFab.hide();
+                addExpenseText.setVisibility(View.GONE);
+                addIncomeText.setVisibility(View.GONE);
+
+                isAllFabVisible = false;
                 alertDialog.dismiss();
 
             }
