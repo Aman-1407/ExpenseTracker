@@ -139,7 +139,6 @@ public class HomeActivity extends AppCompatActivity {
                     String fullname = UserProfile.fullname;
                     greetingTextView.setText(""+ fullname);
                 }
-
             }
 
             @Override
@@ -282,7 +281,7 @@ public class HomeActivity extends AppCompatActivity {
                     int pTotal = Integer.parseInt(String.valueOf(total));
                     totalAmount += pTotal;
 
-                    txt_today.setText("" + totalAmount);
+                    txt_today.setText("\u20B9" + totalAmount);
 
                 }
 
@@ -312,7 +311,7 @@ public class HomeActivity extends AppCompatActivity {
                     int pTotal = Integer.parseInt(String.valueOf(total));
                     totalAmount += pTotal;
 
-                    txt_week.setText("" + totalAmount);
+                    txt_week.setText("\u20B9" + totalAmount);
 
                 }
 
@@ -342,7 +341,7 @@ public class HomeActivity extends AppCompatActivity {
                     int pTotal = Integer.parseInt(String.valueOf(total));
                     totalAmount += pTotal;
 
-                    txt_month.setText("" + totalAmount);
+                    txt_month.setText("\u20B9" + totalAmount);
 
                 }
 
@@ -543,13 +542,16 @@ public class HomeActivity extends AppCompatActivity {
         btn_cancel.setOnClickListener(v -> alertDialog.dismiss());
 
         btn_save.setOnClickListener(v -> {
+
             String amount = et_income.getText().toString();
             String type = itemSpinner.getSelectedItem().toString();
             if (amount.isEmpty()) {
                 et_income.setError("Empty amount");
             }else if (type.equalsIgnoreCase("select item")){
                 Toast.makeText(HomeActivity.this, "Please select a valid item", Toast.LENGTH_SHORT).show();
-            } else {
+            } else{
+
+
                 int in_amount=Integer.parseInt(amount);
                 String id=limit.push().getKey();
                 String note="Budget";

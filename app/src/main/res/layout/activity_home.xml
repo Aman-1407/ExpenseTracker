@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:fillViewport="true">
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".Activities.HomeActivity"
     android:background="@color/background">
 
@@ -168,25 +175,15 @@
         
     </androidx.cardview.widget.CardView>
 
-    <ScrollView
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:padding="16sp"
-        android:scrollbars="none"
-       app:layout_constraintBottom_toTopOf="@id/cardBottom"
-        app:layout_constraintTop_toBottomOf="@id/cardHeader">
         <LinearLayout
+            android:id="@+id/grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cardHeader">
 
             <GridLayout
-                android:layout_width="350dp"
+                android:layout_width="340dp"
                 android:layout_height="130dp"
                 android:layout_margin="10dp"
                 android:columnCount="2"
@@ -270,7 +267,7 @@
                 </androidx.cardview.widget.CardView>
             </GridLayout>
         </LinearLayout>
-    </ScrollView>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardBottom"
@@ -280,8 +277,7 @@
         android:layout_marginEnd="16sp"
         app:cardBackgroundColor="@color/card_background"
         app:cardCornerRadius="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/scroll"
-        app:layout_constraintTop_toBottomOf="@id/scroll">
+        app:layout_constraintTop_toBottomOf="@id/grid">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -298,7 +294,6 @@
                 android:textColor="@color/primary_text"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
-
 
             <LinearLayout
                 android:id="@+id/layout1"
@@ -405,24 +400,14 @@
 
     </androidx.cardview.widget.CardView>
 
-    <ScrollView
-        android:id="@+id/scrollbottom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:overScrollMode="never"
-        android:padding="16sp"
-        android:scrollbars="none"
-        app:layout_constraintTop_toBottomOf="@id/cardBottom">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cardHeader">
+            app:layout_constraintTop_toBottomOf="@id/cardBottom">
 
             <GridLayout
-                android:layout_width="350dp"
+                android:layout_width="340dp"
                 android:layout_height="130dp"
                 android:layout_margin="10dp"
                 android:columnCount="2"
@@ -434,9 +419,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_row="0"
                     app:cardBackgroundColor="@color/card_background"
-                    android:layout_rowWeight="1"
                     android:layout_column="0"
                     android:layout_columnWeight="1"
                     android:layout_gravity="fill"
@@ -455,7 +438,7 @@
                             android:id="@+id/img_set_limit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/bud7" />
+                            android:src="@drawable/bud10" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -475,7 +458,6 @@
                     android:layout_rowWeight="1"
                     android:layout_column="1"
                     android:layout_columnWeight="1"
-                    android:layout_gravity="fill"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="0dp"
                     app:cardUseCompatPadding="true">
@@ -491,7 +473,7 @@
                             android:id="@+id/img_limit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:src="@drawable/bud8" />
+                            android:src="@drawable/bud7" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -504,7 +486,7 @@
                 </androidx.cardview.widget.CardView>
             </GridLayout>
         </LinearLayout>
-    </ScrollView>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_fab"
@@ -533,7 +515,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Set Budget"
+        android:text="Add Budget"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/add_income_fab"
         app:layout_constraintEnd_toStartOf="@+id/add_income_fab"
         app:layout_constraintTop_toTopOf="@+id/add_income_fab" />
@@ -554,11 +537,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="Add Expense"
+        android:textStyle="bold"
         android:elevation="2sp"
         app:layout_constraintBottom_toBottomOf="@+id/add_expense_fab"
         app:layout_constraintEnd_toStartOf="@+id/add_expense_fab"
         app:layout_constraintTop_toTopOf="@+id/add_expense_fab" />
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
