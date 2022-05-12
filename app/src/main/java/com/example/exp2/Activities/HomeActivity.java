@@ -56,7 +56,7 @@ public class HomeActivity extends AppCompatActivity {
     MyAdapter2 myAdapter2;
     weekAdapter weekAdapter;
     ArrayList<Data> list;
-    TextView amountTextview1,amountTextview2,txt_today,txt_week,txt_month,balance;
+    TextView amountTextview1,amountTextview2,txt_today,txt_week,txt_month,balance,save;
     ImageView profile,inc,exe,today,week,month,img_limit,img_set_limit;
 
     FloatingActionButton mAddFab, mAddIncomeFab, mAddExpenseFab;
@@ -120,6 +120,7 @@ public class HomeActivity extends AppCompatActivity {
         txt_month=findViewById(R.id.txt_month);
         img_set_limit=findViewById(R.id.img_set_limit);
         img_limit=findViewById(R.id.img_limit);
+        save=findViewById(R.id.save);
         list = new ArrayList<>();
         myAdapter = new MyAdapter(this, list);
         myAdapter2 = new MyAdapter2(this, list);
@@ -172,6 +173,99 @@ public class HomeActivity extends AppCompatActivity {
         mAddExpenseFab.setOnClickListener(view12 -> showExpenseDialog());
 
         img_set_limit.setOnClickListener(view -> showLimitDialog());
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                database.addValueEventListener(new ValueEventListener() {
+                    @SuppressLint({"NotifyDataSetChanged", "SetTextI18n"})
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        list.clear();
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                            Data data = dataSnapshot.getValue(Data.class);
+                            list.add(data);
+                        }
+                        myAdapter.notifyDataSetChanged();
+
+                        int totalAmount = 0;
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            Map<String, Object> map = (Map<String, Object>) ds.getValue();
+                            assert map != null;
+                            Object total = map.get("amount");
+                            int pTotal = Integer.parseInt(String.valueOf(total));
+                            totalAmount += pTotal;
+                            amountTextview1.setText("\u20B9" + totalAmount);
+                        }
+                        personal.child("Income").setValue(totalAmount);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+
+                });
+
+                database2.addValueEventListener(new ValueEventListener() {
+                    @SuppressLint({"NotifyDataSetChanged", "SetTextI18n"})
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        list.clear();
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                            Data data = dataSnapshot.getValue(Data.class);
+                            list.add(data);
+                        }
+                        myAdapter2.notifyDataSetChanged();
+
+                        int totalAmount = 0;
+                        for (DataSnapshot ds : snapshot.getChildren()) {
+                            Map<String, Object> map = (Map<String, Object>) ds.getValue();
+                            assert map != null;
+                            Object total = map.get("amount");
+                            int pTotal = Integer.parseInt(String.valueOf(total));
+                            totalAmount += pTotal;
+                            amountTextview2.setText("\u20B9" + totalAmount);
+                        }
+                        personal.child("Expense").setValue(totalAmount);
+                    }
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+                personal.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        int income;
+                        if(snapshot.hasChild("Income")) {
+                            income = Integer.parseInt(snapshot.child("Income").getValue().toString());
+                        }else{
+                            income=0;
+                        }
+                        int expense;
+                        if(snapshot.hasChild("Expense")) {
+                            expense = Integer.parseInt(snapshot.child("Expense").getValue().toString());
+                        }else{
+                            expense=0;
+                        }
+                        int saving = income - expense;
+                        balance.setText("\u20B9" + saving);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+            }
+        });
 
 
         database.addValueEventListener(new ValueEventListener() {
