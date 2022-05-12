@@ -2,5 +2,6 @@
     <style name="Theme.Exp2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
+        <item name="android:textColorHint">@color/primary_text</item>
     </style>
 </resources>

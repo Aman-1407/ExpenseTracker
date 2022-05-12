@@ -3,6 +3,6 @@
 
         <item name="colorPrimary">@color/primary</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
-        <item name="android:textColorHint">#0d6e6a</item>
+        <item name="android:textColorHint">@color/primary_text</item>
     </style>
 </resources>

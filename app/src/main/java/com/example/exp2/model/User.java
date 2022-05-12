@@ -1,6 +1,7 @@
 package com.example.exp2.model;
 
 public class User {
+
     public String fullname,age,email;
     public User(){
     }

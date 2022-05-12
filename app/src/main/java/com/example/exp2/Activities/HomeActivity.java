@@ -553,7 +553,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
                 int in_amount=Integer.parseInt(amount);
-                String id=limit.push().getKey();
+                String id= limit.push().getKey();
                 String note="Budget";
                 DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
                 Calendar cal = Calendar.getInstance();
@@ -570,8 +570,8 @@ public class HomeActivity extends AppCompatActivity {
                 String mDate= DateFormat.getDateInstance().format(new Date());
                 Data data=new Data(in_amount,type,typeday,typemonth,typeweek,note,id,date,weeks.getWeeks(),months.getMonths());
                 assert id != null;
-                limit.child(id).setValue(data);
-                Toast.makeText(HomeActivity.this,"Data Added!",Toast.LENGTH_SHORT).show();
+                limit.child(type).setValue(data);
+                Toast.makeText(HomeActivity.this,"Limit Set!",Toast.LENGTH_SHORT).show();
                 alertDialog.dismiss();
 
             }

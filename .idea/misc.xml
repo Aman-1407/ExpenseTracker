@@ -24,7 +24,7 @@
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2419837537409149" />
         <entry key="app/src/main/res/layout/activity_income_acitivity.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/activity_income_activity.xml" value="0.2947916666666667" />
-        <entry key="app/src/main/res/layout/activity_limit.xml" value="0.2419837537409149" />
+        <entry key="app/src/main/res/layout/activity_limit.xml" value="0.1936725096194955" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.29025641025641025" />
         <entry key="app/src/main/res/layout/activity_month.xml" value="0.28020833333333334" />
@@ -85,7 +85,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.2947916666666667" />
+        <option name="scale" value="0.2419837537409149" />
       </ProjectState>
     </option>
   </component>

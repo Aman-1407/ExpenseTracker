@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@color/white"
+    android:background="@color/background"
     tools:context=".Activities.RegisterUser">
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/register"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:textSize="35sp"
         android:textStyle="bold"
         android:letterSpacing="0.03"
@@ -28,7 +28,7 @@
         android:background="@drawable/forget"
         android:paddingStart="20dp"
         android:hint="@string/full_name"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:textSize="18sp"
         android:textStyle="bold"
         android:autofillHints=""
@@ -42,7 +42,7 @@
         android:background="@drawable/forget"
         android:paddingStart="20dp"
         android:hint="@string/age"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:ignore="RtlSymmetry" />
@@ -55,7 +55,7 @@
         android:background="@drawable/forget"
         android:paddingStart="20dp"
         android:hint="@string/email"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:textSize="18sp"
         android:textStyle="bold"
         tools:ignore="RtlSymmetry" />
@@ -68,7 +68,7 @@
         android:background="@drawable/forget"
         android:paddingStart="20dp"
         android:hint="@string/password"
-        android:textColor="#0d6e6a"
+        android:textColor="@color/primary_text"
         android:inputType="textPassword"
         android:textSize="18sp"
         android:textStyle="bold"
