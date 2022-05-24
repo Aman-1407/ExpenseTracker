@@ -32,19 +32,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        authStateListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-
-                FirebaseUser User=mAuth.getCurrentUser();
-                if(User!=null){
-                    Intent intent=new Intent(LoginActivity.this,HomeActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-
-            }
-        };
 
         TextView register = (TextView) findViewById(R.id.register);
         register.setOnClickListener(this);
@@ -101,7 +88,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        progressBar.setVisibility(View.VISIBLE);
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(task -> {
 
             if (task.isSuccessful()){
@@ -110,18 +96,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(LoginActivity.this, "Failed to login! Please check your credentials", Toast.LENGTH_SHORT).show();
             }
     });
-    }
-
-    @Override
-    protected void onStart(){
-        super.onStart();
-        mAuth.addAuthStateListener(authStateListener);
-    }
-
-    @Override
-    protected void onStop(){
-        super.onStop();
-        mAuth.removeAuthStateListener(authStateListener);
     }
 
 

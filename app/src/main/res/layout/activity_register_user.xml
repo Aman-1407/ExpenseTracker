@@ -41,6 +41,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/forget"
         android:paddingStart="20dp"
+        android:inputType="number"
         android:hint="@string/age"
         android:textColor="@color/primary_text"
         android:textSize="18sp"

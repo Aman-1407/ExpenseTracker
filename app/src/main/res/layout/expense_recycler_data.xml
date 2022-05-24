@@ -46,12 +46,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/type_txt_expense"
-                android:layout_marginLeft="21dp"
+                android:layout_marginLeft="130dp"
                 android:layout_toRightOf="@+id/imageview"
-                android:text="15 Dec"
+                android:text=""
                 android:textColor="#516b9e"
-                android:textSize="16dp"
-                android:visibility="gone" />
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/date_txt_expense"
